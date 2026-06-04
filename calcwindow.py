@@ -99,6 +99,8 @@ class CardDialog(QWidget):
         self.gender = gender
         self.calculated_data = {}
 
+        self.equipment_id = None
+
         self.labelAstranautName.setText(f"Космонавт: {fio}")
         self.tableResultKit.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.ResizeToContents)
 
@@ -120,6 +122,8 @@ class CardDialog(QWidget):
         self.btnSaveAllToDb.clicked.connect(self.save_to_database)
         self.btnResetInputs.clicked.connect(self.reset_inputs)
         self.btnCreateOrder.clicked.connect(self.create_word_order)
+        self.btnExportAnthroCsv.clicked.connect(self.export_anthro_to_csv)
+        self.btnExportSpecCsv.clicked.connect(self.export_spec_to_csv)
 
         self.load_or_reset_data()
 
@@ -143,11 +147,15 @@ class CardDialog(QWidget):
             self.doubleSpinBox_finger_len.setValue(data['finger_len'] if data['finger_len'] is not None else 5)
             self.doubleSpinBox_arm_len.setValue(data['arm_len'] if data['arm_len'] is not None else 0)
             self.doubleSpinBox_leg_len.setValue(data['leg_len'] if data['leg_len'] is not None else 0)
+            self.comboBox_trousers_size.setCurrentText(data['trousers_size'] or 'M')
+            self.comboBox_surgical_chainmail_gloves_size.setCurrentText(data['surgical_chainmail_gloves_size'] or 'M')
 
+            self.equipment_id = data.get('equipment_id')
             for s in self.all_spins:
                 s.blockSignals(False)
             self.comboBox_mod.blockSignals(False)
             self.auto_calculate()
+
         else:
             self.reset_inputs()
 
@@ -172,7 +180,7 @@ class CardDialog(QWidget):
         self.calculated_data = res
         self.tableResultKit.setRowCount(1)
 
-        product_id = str(self.astronaut_id + 500)
+        product_id = str(self.equipment_id) if self.equipment_id else "-"
 
         data_fields = [
             product_id,                  # 1. № Изделия
@@ -204,9 +212,12 @@ class CardDialog(QWidget):
             'head': self.doubleSpinBox_head.value(), 'height': self.doubleSpinBox_height.value(),
             'chest': self.doubleSpinBox_chest.value(), 'waist': self.doubleSpinBox_waist.value(),
             'foot_size': self.doubleSpinBox_foot_size.value(), 'finger_len': self.doubleSpinBox_finger_len.value(),
-            'wrist_circ': self.doubleSpinBox_wrist_circ.value()
+            'wrist_circ': self.doubleSpinBox_wrist_circ.value(), 'arm_len': self.doubleSpinBox_arm_len.value(),
+            'leg_len': self.doubleSpinBox_leg_len.value()
         }
 
+        calculated_data_for_report = self.calculated_data.copy()
+        calculated_data_for_report["product_id"] = self.equipment_id if self.equipment_id else 0
         try:
             generate_order_document(
                 path=path,
@@ -215,7 +226,7 @@ class CardDialog(QWidget):
                 gender=self.gender,
                 suit_mod=self.comboBox_mod.currentText(),
                 anthro_params=anthro_params,
-                calculated_data=self.calculated_data
+                calculated_data=calculated_data_for_report
             )
             QMessageBox.information(self, "Успех", f"Документ успешно сгенерирован!\nПуть: {path}")
         except Exception as e:
@@ -264,10 +275,53 @@ class CardDialog(QWidget):
                 "surgical_chainmail_gloves_size": self.calculated_data["surgical_chainmail_gloves_size"],
                 "trousers_size": self.calculated_data["trousers_size"]
             }
-            if self.db.save_card_data(self.astronaut_id, anthro, legacy_calculated):
+            equip_id = self.db.save_card_data(self.astronaut_id, anthro, legacy_calculated)
+            if equip_id:
+                self.equipment_id = equip_id
                 QMessageBox.information(self, "Успех", "Данные сохранены в СУБД.")
+                self.auto_calculate()
         except Exception as e:
             QMessageBox.critical(self, "Ошибка СУБД", f"Критический сбой: {e}")
+
+    def export_anthro_to_csv(self):
+        """Экспорт текущих значений антропометрии в CSV"""
+        path, _ = QFileDialog.getSaveFileName(self, "Экспорт антропометрии", "", "CSV Files (*.csv)")
+        if not path:
+            return
+        headers = ["Параметр", "Значение"]
+        rows = [
+            ("Обхват головы, см", self.doubleSpinBox_head.value()),
+            ("Рост, см", self.doubleSpinBox_height.value()),
+            ("Обхват груди, см", self.doubleSpinBox_chest.value()),
+            ("Обхват талии, см", self.doubleSpinBox_waist.value()),
+            ("Размер стопы", self.doubleSpinBox_foot_size.value()),
+            ("Обхват кисти, см", self.doubleSpinBox_wrist_circ.value()),
+            ("Длина 3-го пальца, см", self.doubleSpinBox_finger_len.value()),
+            ("Длина руки, см", self.doubleSpinBox_arm_len.value()),
+            ("Длина ноги по боку, см", self.doubleSpinBox_leg_len.value()),
+            ("Модификация скафандра", self.comboBox_mod.currentText()),
+        ]
+        with open(path, 'w', newline='', encoding='utf-8-sig') as f:
+            writer = csv.writer(f, delimiter=';')
+            writer.writerow(headers)
+            writer.writerows(rows)
+        QMessageBox.information(self, "Успех", f"Антропометрия сохранена в {path}")
+
+    def export_spec_to_csv(self):
+        """Экспорт таблицы с результатами подбора в CSV"""
+        path, _ = QFileDialog.getSaveFileName(self, "Экспорт спецификации", "", "CSV Files (*.csv)")
+        if not path:
+            return
+        headers = [self.tableResultKit.horizontalHeaderItem(i).text() for i in range(self.tableResultKit.columnCount())]
+        row_data = []
+        for col in range(self.tableResultKit.columnCount()):
+            item = self.tableResultKit.item(0, col)
+            row_data.append(item.text() if item else "")
+        with open(path, 'w', newline='', encoding='utf-8-sig') as f:
+            writer = csv.writer(f, delimiter=';')
+            writer.writerow(headers)
+            writer.writerow(row_data)
+        QMessageBox.information(self, "Успех", f"Спецификация сохранена в {path}")
 
     def closeEvent(self, event):
         if self.main_window:

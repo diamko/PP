@@ -60,11 +60,13 @@ class DatabaseManager:
     def get_card_data(self, astronaut_id):
         """Получает сохраненную антропометрию из БД для карточки"""
         query = """
-            SELECT suit_modification, head_circumference, height,
-                   chest_circumference, waist_circumference, foot_size,
-                   finger_len, wrist_circ, arm_len, leg_len
-            FROM anthropometry
-            WHERE astronaut_id = %s;
+            SELECT a.suit_modification, a.head_circumference, a.height,
+                   a.chest_circumference, a.waist_circumference, a.foot_size,
+                   a.finger_len, a.wrist_circ, a.arm_len, a.leg_len,
+                   e.trousers_size, e.surgical_chainmail_gloves_size, e.id AS equipment_id
+            FROM anthropometry a
+            LEFT JOIN equipment_selection e ON a.astronaut_id = e.astronaut_id
+            WHERE a.astronaut_id = %s;
         """
         try:
             with self._get_connection() as conn:
@@ -150,8 +152,13 @@ class DatabaseManager:
                     equip['gloves_size'],
                     equip['trousers_size']
                 ))
+                cursor.execute("""
+                    SELECT id FROM equipment_selection WHERE astronaut_id = %s
+                """, (astronaut_id,))
+                equip_id = cursor.fetchone()[0]
+
             conn.commit()
-            return True
+            return equip_id
         except Exception as e:
             conn.rollback()
             raise e

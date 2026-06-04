@@ -64,7 +64,7 @@ def generate_order_document(path, astronaut_id, fio, gender, suit_mod, anthro_pa
         f"Рост: {anthro_params.get('height', '-')} см, "
         f"Грудь: {anthro_params.get('chest', '-')} см, "
         f"Талия: {anthro_params.get('waist', '-')} см, "
-        f"Обувь: {anthro_params.get('shoe', '-')} разм., "
+        f"Обувь: {anthro_params.get('foot_size', '-')} разм., "
         f"Обхват запястья: {anthro_params.get('wrist_circ', '-')} см, "
         f"Длина пальца: {anthro_params.get('finger_len', '-')} см, "
         f"Длина руки: {anthro_params.get('arm_len', '-')} см, "
@@ -95,7 +95,7 @@ def generate_order_document(path, astronaut_id, fio, gender, suit_mod, anthro_pa
         hdr_cells[i].paragraphs[0].runs[0].font.bold = True
         hdr_cells[i].paragraphs[0].runs[0].font.size = Pt(9.5)
 
-    product_id = str(calculated_data.get("product_id", astronaut_id + 500))
+    product_id = str(calculated_data.get("product_id", 0))
 
     data_fields = [
         product_id,
@@ -126,12 +126,12 @@ def generate_order_document(path, astronaut_id, fio, gender, suit_mod, anthro_pa
     p_socks = doc.add_paragraph(style='List Bullet')
     p_socks.paragraph_format.space_after = Pt(3)
     p_socks.add_run("Трусы эластичные под скафандр (Seni Active): ").bold = True
-    p_socks.add_run(f"Типоразмер {calculated_data.get('seni_size', 'M')}")
+    p_socks.add_run(f"Типоразмер {calculated_data.get('trousers_size', 'M')}")
 
     p_gloves = doc.add_paragraph(style='List Bullet')
     p_gloves.paragraph_format.space_after = Pt(12)
     p_gloves.add_run("Перчатки кольчужные хирургические (защитные): ").bold = True
-    p_gloves.add_run(f"Типоразмер {calculated_data.get('gloves_chainmail', 'M')}")
+    p_gloves.add_run(f"Типоразмер {calculated_data.get('surgical_chainmail_gloves_size', 'M')}")
 
     p_note = doc.add_paragraph()
     p_note.paragraph_format.left_indent = Inches(0.2)

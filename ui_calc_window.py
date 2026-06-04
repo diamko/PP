@@ -457,7 +457,7 @@ class Ui_Form(object):
         self.retranslateUi(Form)
         self.btnCancelAndBack.clicked.connect(Form.close)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(Form)
