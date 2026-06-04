@@ -1,3 +1,4 @@
+# database.py
 import psycopg2
 from psycopg2.extras import DictCursor
 from config import DB_CONFIG
@@ -27,7 +28,8 @@ class DatabaseManager:
             return None
 
     def delete_astronaut(self, astronaut_id):
-        """Удаление космонавта по ID."""
+        """Удаление космонавта по ID. Благодаря ON DELETE CASCADE,
+        связанные антропометрия и снаряжение удалятся автоматически."""
         query = "DELETE FROM astronauts WHERE id = %s;"
         try:
             with self._get_connection() as conn:
@@ -54,11 +56,12 @@ class DatabaseManager:
         except Exception as e:
             print(f"Ошибка получения данных: {e}")
             return []
+
     def get_card_data(self, astronaut_id):
         """Получает сохраненную антропометрию из БД для карточки"""
         query = """
             SELECT suit_modification, head_circumference, height,
-                   chest_circumference, waist_circumference, feet_size,
+                   chest_circumference, waist_circumference, foot_size,
                    finger_len, wrist_circ, arm_len, leg_len
             FROM anthropometry
             WHERE astronaut_id = %s;
@@ -73,11 +76,11 @@ class DatabaseManager:
             return None
 
     def save_card_data(self, astronaut_id, anthro, equip):
-        # 1. Запрос для антропометрии (все 4 новых параметра перенесены сюда)
+        # 1. Запрос для антропометрии (учитывая новые ENUM и названия колонок)
         q_anthro = """
             INSERT INTO anthropometry (
                 astronaut_id, suit_modification, head_circumference, height,
-                chest_circumference, waist_circumference, feet_size,
+                chest_circumference, waist_circumference, foot_size,
                 finger_len, wrist_circ, arm_len, leg_len
             )
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
@@ -87,20 +90,21 @@ class DatabaseManager:
                 height = EXCLUDED.height,
                 chest_circumference = EXCLUDED.chest_circumference,
                 waist_circumference = EXCLUDED.waist_circumference,
-                feet_size = EXCLUDED.feet_size,
+                foot_size = EXCLUDED.foot_size,
                 finger_len = EXCLUDED.finger_len,
                 wrist_circ = EXCLUDED.wrist_circ,
                 arm_len = EXCLUDED.arm_len,
                 leg_len = EXCLUDED.leg_len;
         """
 
-        # 2. Запрос для снаряжения (остается чистым, без антропометрии)
+        # 2. Запрос для снаряжения (добавлены 2 новые колонки: surgical_chainmail_gloves_size и trousers_size)
         q_equip = """
             INSERT INTO equipment_selection (
                 astronaut_id, suit_size, gp7s_qty, shl10sa_qty,
-                underwear_size, socks_size, insoles_size, gloves_size, boots_size
+                underwear_size, socks_size, insoles_size, surgical_chainmail_gloves_size,
+                boots_size, gloves_size, trousers_size
             )
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             ON CONFLICT (astronaut_id) DO UPDATE SET
                 suit_size = EXCLUDED.suit_size,
                 gp7s_qty = EXCLUDED.gp7s_qty,
@@ -108,14 +112,16 @@ class DatabaseManager:
                 underwear_size = EXCLUDED.underwear_size,
                 socks_size = EXCLUDED.socks_size,
                 insoles_size = EXCLUDED.insoles_size,
+                surgical_chainmail_gloves_size = EXCLUDED.surgical_chainmail_gloves_size,
+                boots_size = EXCLUDED.boots_size,
                 gloves_size = EXCLUDED.gloves_size,
-                boots_size = EXCLUDED.boots_size;
+                trousers_size = EXCLUDED.trousers_size;
         """
 
         conn = self._get_connection()
         try:
             with conn.cursor() as cursor:
-                # Передаем старые + 4 новых параметра из словаря anthro
+                # Отправляем параметры антропометрии
                 cursor.execute(q_anthro, (
                     astronaut_id,
                     anthro['mod'],
@@ -123,14 +129,14 @@ class DatabaseManager:
                     anthro['height'],
                     anthro['chest'],
                     anthro['waist'],
-                    anthro['shoe'],
-                    anthro.get('finger_len', 0),  # Используем .get() на случай, если ключа нет
+                    anthro['foot_size'],
+                    anthro.get('finger_len', 0),
                     anthro.get('wrist_circ', 0),
                     anthro.get('arm_len', 0),
                     anthro.get('leg_len', 0)
                 ))
 
-                # Передаем данные снаряжения
+                # Отправляем параметры снаряжения
                 cursor.execute(q_equip, (
                     astronaut_id,
                     equip['suit_size'],
@@ -139,8 +145,10 @@ class DatabaseManager:
                     equip['underwear_size'],
                     equip['socks_size'],
                     equip['insoles_size'],
+                    equip['surgical_chainmail_gloves_size'],
+                    equip['boots_size'],
                     equip['gloves_size'],
-                    equip['boots_size']
+                    equip['trousers_size']
                 ))
             conn.commit()
             return True

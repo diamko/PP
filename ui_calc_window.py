@@ -61,22 +61,22 @@ class Ui_Form(object):
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.label_3.sizePolicy().hasHeightForWidth())
         self.label_3.setSizePolicy(sizePolicy1)
-        self.label_3.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_3.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.horizontalLayout_4.addWidget(self.label_3)
 
-        self.comboBox_2 = QComboBox(self.tab)
-        self.comboBox_2.addItem("")
-        self.comboBox_2.addItem("")
-        self.comboBox_2.addItem("")
-        self.comboBox_2.setObjectName(u"comboBox_2")
+        self.comboBox_mod = QComboBox(self.tab)
+        self.comboBox_mod.addItem("")
+        self.comboBox_mod.addItem("")
+        self.comboBox_mod.addItem("")
+        self.comboBox_mod.setObjectName(u"comboBox_mod")
         sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
         sizePolicy2.setHorizontalStretch(0)
         sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.comboBox_2.sizePolicy().hasHeightForWidth())
-        self.comboBox_2.setSizePolicy(sizePolicy2)
+        sizePolicy2.setHeightForWidth(self.comboBox_mod.sizePolicy().hasHeightForWidth())
+        self.comboBox_mod.setSizePolicy(sizePolicy2)
 
-        self.horizontalLayout_4.addWidget(self.comboBox_2)
+        self.horizontalLayout_4.addWidget(self.comboBox_mod)
 
 
         self.verticalLayout_14.addLayout(self.horizontalLayout_4)
@@ -89,15 +89,15 @@ class Ui_Form(object):
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.label_4 = QLabel(self.tab)
         self.label_4.setObjectName(u"label_4")
-        self.label_4.setAlignment(Qt.AlignCenter)
+        self.label_4.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.label_4.setWordWrap(True)
 
         self.verticalLayout_3.addWidget(self.label_4)
 
-        self.doubleSpinBox = QDoubleSpinBox(self.tab)
-        self.doubleSpinBox.setObjectName(u"doubleSpinBox")
+        self.doubleSpinBox_head = QDoubleSpinBox(self.tab)
+        self.doubleSpinBox_head.setObjectName(u"doubleSpinBox_head")
 
-        self.verticalLayout_3.addWidget(self.doubleSpinBox)
+        self.verticalLayout_3.addWidget(self.doubleSpinBox_head)
 
 
         self.horizontalLayout_2.addLayout(self.verticalLayout_3)
@@ -106,15 +106,15 @@ class Ui_Form(object):
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.label_5 = QLabel(self.tab)
         self.label_5.setObjectName(u"label_5")
-        self.label_5.setAlignment(Qt.AlignCenter)
+        self.label_5.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.label_5.setWordWrap(True)
 
         self.verticalLayout_4.addWidget(self.label_5)
 
-        self.doubleSpinBox_2 = QDoubleSpinBox(self.tab)
-        self.doubleSpinBox_2.setObjectName(u"doubleSpinBox_2")
+        self.doubleSpinBox_height = QDoubleSpinBox(self.tab)
+        self.doubleSpinBox_height.setObjectName(u"doubleSpinBox_height")
 
-        self.verticalLayout_4.addWidget(self.doubleSpinBox_2)
+        self.verticalLayout_4.addWidget(self.doubleSpinBox_height)
 
 
         self.horizontalLayout_2.addLayout(self.verticalLayout_4)
@@ -123,15 +123,15 @@ class Ui_Form(object):
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.label_6 = QLabel(self.tab)
         self.label_6.setObjectName(u"label_6")
-        self.label_6.setAlignment(Qt.AlignCenter)
+        self.label_6.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.label_6.setWordWrap(True)
 
         self.verticalLayout_5.addWidget(self.label_6)
 
-        self.doubleSpinBox_3 = QDoubleSpinBox(self.tab)
-        self.doubleSpinBox_3.setObjectName(u"doubleSpinBox_3")
+        self.doubleSpinBox_chest = QDoubleSpinBox(self.tab)
+        self.doubleSpinBox_chest.setObjectName(u"doubleSpinBox_chest")
 
-        self.verticalLayout_5.addWidget(self.doubleSpinBox_3)
+        self.verticalLayout_5.addWidget(self.doubleSpinBox_chest)
 
 
         self.horizontalLayout_2.addLayout(self.verticalLayout_5)
@@ -140,15 +140,15 @@ class Ui_Form(object):
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.label_7 = QLabel(self.tab)
         self.label_7.setObjectName(u"label_7")
-        self.label_7.setAlignment(Qt.AlignCenter)
+        self.label_7.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.label_7.setWordWrap(True)
 
         self.verticalLayout_6.addWidget(self.label_7)
 
-        self.doubleSpinBox_4 = QDoubleSpinBox(self.tab)
-        self.doubleSpinBox_4.setObjectName(u"doubleSpinBox_4")
+        self.doubleSpinBox_waist = QDoubleSpinBox(self.tab)
+        self.doubleSpinBox_waist.setObjectName(u"doubleSpinBox_waist")
 
-        self.verticalLayout_6.addWidget(self.doubleSpinBox_4)
+        self.verticalLayout_6.addWidget(self.doubleSpinBox_waist)
 
 
         self.horizontalLayout_2.addLayout(self.verticalLayout_6)
@@ -157,15 +157,15 @@ class Ui_Form(object):
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
         self.label_8 = QLabel(self.tab)
         self.label_8.setObjectName(u"label_8")
-        self.label_8.setAlignment(Qt.AlignCenter)
+        self.label_8.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.label_8.setWordWrap(True)
 
         self.verticalLayout_7.addWidget(self.label_8)
 
-        self.doubleSpinBox_5 = QDoubleSpinBox(self.tab)
-        self.doubleSpinBox_5.setObjectName(u"doubleSpinBox_5")
+        self.doubleSpinBox_foot_size = QDoubleSpinBox(self.tab)
+        self.doubleSpinBox_foot_size.setObjectName(u"doubleSpinBox_foot_size")
 
-        self.verticalLayout_7.addWidget(self.doubleSpinBox_5)
+        self.verticalLayout_7.addWidget(self.doubleSpinBox_foot_size)
 
 
         self.horizontalLayout_2.addLayout(self.verticalLayout_7)
@@ -178,10 +178,10 @@ class Ui_Form(object):
 
         self.verticalLayout_8.addWidget(self.label)
 
-        self.doubleSpinBox_6 = QDoubleSpinBox(self.tab)
-        self.doubleSpinBox_6.setObjectName(u"doubleSpinBox_6")
+        self.doubleSpinBox_wrist_circ = QDoubleSpinBox(self.tab)
+        self.doubleSpinBox_wrist_circ.setObjectName(u"doubleSpinBox_wrist_circ")
 
-        self.verticalLayout_8.addWidget(self.doubleSpinBox_6)
+        self.verticalLayout_8.addWidget(self.doubleSpinBox_wrist_circ)
 
 
         self.horizontalLayout_2.addLayout(self.verticalLayout_8)
@@ -194,10 +194,10 @@ class Ui_Form(object):
 
         self.verticalLayout_10.addWidget(self.label_2)
 
-        self.doubleSpinBox_7 = QDoubleSpinBox(self.tab)
-        self.doubleSpinBox_7.setObjectName(u"doubleSpinBox_7")
+        self.doubleSpinBox_finger_len = QDoubleSpinBox(self.tab)
+        self.doubleSpinBox_finger_len.setObjectName(u"doubleSpinBox_finger_len")
 
-        self.verticalLayout_10.addWidget(self.doubleSpinBox_7)
+        self.verticalLayout_10.addWidget(self.doubleSpinBox_finger_len)
 
 
         self.horizontalLayout_2.addLayout(self.verticalLayout_10)
@@ -210,10 +210,10 @@ class Ui_Form(object):
 
         self.verticalLayout_11.addWidget(self.label_11)
 
-        self.doubleSpinBox_8 = QDoubleSpinBox(self.tab)
-        self.doubleSpinBox_8.setObjectName(u"doubleSpinBox_8")
+        self.doubleSpinBox_arm_len = QDoubleSpinBox(self.tab)
+        self.doubleSpinBox_arm_len.setObjectName(u"doubleSpinBox_arm_len")
 
-        self.verticalLayout_11.addWidget(self.doubleSpinBox_8)
+        self.verticalLayout_11.addWidget(self.doubleSpinBox_arm_len)
 
 
         self.horizontalLayout_2.addLayout(self.verticalLayout_11)
@@ -226,10 +226,10 @@ class Ui_Form(object):
 
         self.verticalLayout_13.addWidget(self.label_12)
 
-        self.doubleSpinBox_9 = QDoubleSpinBox(self.tab)
-        self.doubleSpinBox_9.setObjectName(u"doubleSpinBox_9")
+        self.doubleSpinBox_leg_len = QDoubleSpinBox(self.tab)
+        self.doubleSpinBox_leg_len.setObjectName(u"doubleSpinBox_leg_len")
 
-        self.verticalLayout_13.addWidget(self.doubleSpinBox_9)
+        self.verticalLayout_13.addWidget(self.doubleSpinBox_leg_len)
 
 
         self.horizontalLayout_2.addLayout(self.verticalLayout_13)
@@ -263,11 +263,11 @@ class Ui_Form(object):
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QWidget()
         self.tab_2.setObjectName(u"tab_2")
-        self.verticalLayout_12 = QVBoxLayout(self.tab_2)
-        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.verticalLayout_2 = QVBoxLayout(self.tab_2)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalSpacer_2 = QSpacerItem(20, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
-        self.verticalLayout_12.addItem(self.verticalSpacer_2)
+        self.verticalLayout_2.addItem(self.verticalSpacer_2)
 
         self.tableResultKit = QTableWidget(self.tab_2)
         if (self.tableResultKit.columnCount() < 10):
@@ -329,37 +329,67 @@ class Ui_Form(object):
         self.tableResultKit.verticalHeader().setDefaultSectionSize(41)
         self.tableResultKit.verticalHeader().setStretchLastSection(True)
 
-        self.verticalLayout_12.addWidget(self.tableResultKit)
-
-        self.verticalSpacer = QSpacerItem(20, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
-
-        self.verticalLayout_12.addItem(self.verticalSpacer)
+        self.verticalLayout_2.addWidget(self.tableResultKit)
 
         self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setSpacing(6)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
+        self.horizontalLayout.setContentsMargins(0, -1, -1, -1)
+        self.horizontalSpacer_5 = QSpacerItem(130, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout.addItem(self.horizontalSpacer_5)
+
+        self.label_10 = QLabel(self.tab_2)
+        self.label_10.setObjectName(u"label_10")
+        sizePolicy.setHeightForWidth(self.label_10.sizePolicy().hasHeightForWidth())
+        self.label_10.setSizePolicy(sizePolicy)
+        self.label_10.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
+        self.label_10.setMargin(0)
+
+        self.horizontalLayout.addWidget(self.label_10)
+
+        self.comboBox_surgical_chainmail_gloves_size = QComboBox(self.tab_2)
+        self.comboBox_surgical_chainmail_gloves_size.addItem("")
+        self.comboBox_surgical_chainmail_gloves_size.addItem("")
+        self.comboBox_surgical_chainmail_gloves_size.addItem("")
+        self.comboBox_surgical_chainmail_gloves_size.setObjectName(u"comboBox_surgical_chainmail_gloves_size")
+        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        sizePolicy4.setHorizontalStretch(20)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.comboBox_surgical_chainmail_gloves_size.sizePolicy().hasHeightForWidth())
+        self.comboBox_surgical_chainmail_gloves_size.setSizePolicy(sizePolicy4)
+
+        self.horizontalLayout.addWidget(self.comboBox_surgical_chainmail_gloves_size)
+
+        self.horizontalSpacer = QSpacerItem(60, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer)
 
         self.label_9 = QLabel(self.tab_2)
         self.label_9.setObjectName(u"label_9")
 
         self.horizontalLayout.addWidget(self.label_9)
 
-        self.comboBox = QComboBox(self.tab_2)
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.setObjectName(u"comboBox")
+        self.comboBox_trousers_size = QComboBox(self.tab_2)
+        self.comboBox_trousers_size.addItem("")
+        self.comboBox_trousers_size.addItem("")
+        self.comboBox_trousers_size.addItem("")
+        self.comboBox_trousers_size.setObjectName(u"comboBox_trousers_size")
+        sizePolicy4.setHeightForWidth(self.comboBox_trousers_size.sizePolicy().hasHeightForWidth())
+        self.comboBox_trousers_size.setSizePolicy(sizePolicy4)
 
-        self.horizontalLayout.addWidget(self.comboBox)
+        self.horizontalLayout.addWidget(self.comboBox_trousers_size)
 
-        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_6 = QSpacerItem(160, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout.addItem(self.horizontalSpacer_6)
 
 
-        self.verticalLayout_12.addLayout(self.horizontalLayout)
+        self.verticalLayout_2.addLayout(self.horizontalLayout)
+
+        self.verticalSpacer = QSpacerItem(20, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.verticalLayout_2.addItem(self.verticalSpacer)
 
         self.horizontalLayout_10 = QHBoxLayout()
         self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
@@ -378,7 +408,7 @@ class Ui_Form(object):
         self.horizontalLayout_10.addWidget(self.btnCreateOrder)
 
 
-        self.verticalLayout_12.addLayout(self.horizontalLayout_10)
+        self.verticalLayout_2.addLayout(self.horizontalLayout_10)
 
         self.tabWidget.addTab(self.tab_2, "")
 
@@ -410,13 +440,13 @@ class Ui_Form(object):
 
         self.verticalLayout.addLayout(self.horizontalLayout_13)
 
-        QWidget.setTabOrder(self.tabWidget, self.comboBox_2)
-        QWidget.setTabOrder(self.comboBox_2, self.doubleSpinBox)
-        QWidget.setTabOrder(self.doubleSpinBox, self.doubleSpinBox_2)
-        QWidget.setTabOrder(self.doubleSpinBox_2, self.doubleSpinBox_3)
-        QWidget.setTabOrder(self.doubleSpinBox_3, self.doubleSpinBox_4)
-        QWidget.setTabOrder(self.doubleSpinBox_4, self.doubleSpinBox_5)
-        QWidget.setTabOrder(self.doubleSpinBox_5, self.btnExportAnthroCsv)
+        QWidget.setTabOrder(self.tabWidget, self.comboBox_mod)
+        QWidget.setTabOrder(self.comboBox_mod, self.doubleSpinBox_head)
+        QWidget.setTabOrder(self.doubleSpinBox_head, self.doubleSpinBox_height)
+        QWidget.setTabOrder(self.doubleSpinBox_height, self.doubleSpinBox_chest)
+        QWidget.setTabOrder(self.doubleSpinBox_chest, self.doubleSpinBox_waist)
+        QWidget.setTabOrder(self.doubleSpinBox_waist, self.doubleSpinBox_foot_size)
+        QWidget.setTabOrder(self.doubleSpinBox_foot_size, self.btnExportAnthroCsv)
         QWidget.setTabOrder(self.btnExportAnthroCsv, self.tableResultKit)
         QWidget.setTabOrder(self.tableResultKit, self.btnSaveAllToDb)
         QWidget.setTabOrder(self.btnSaveAllToDb, self.btnExportSpecCsv)
@@ -437,9 +467,9 @@ class Ui_Form(object):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
         self.labelAstranautName.setText(QCoreApplication.translate("Form", u"\u041a\u043e\u0441\u043c\u043e\u043d\u0430\u0432\u0442:", None))
         self.label_3.setText(QCoreApplication.translate("Form", u"\u041c\u043e\u0434\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u044f \u0441\u043a\u0430\u0444\u0430\u043d\u0434\u0440\u0430:", None))
-        self.comboBox_2.setItemText(0, QCoreApplication.translate("Form", u"\u0420\u0414\u0421\u041f-3\u041c", None))
-        self.comboBox_2.setItemText(1, QCoreApplication.translate("Form", u"\u0420\u0414\u0421\u041f-3\u041c-01", None))
-        self.comboBox_2.setItemText(2, QCoreApplication.translate("Form", u"\u0420\u0414\u0422-1", None))
+        self.comboBox_mod.setItemText(0, QCoreApplication.translate("Form", u"\u0420\u0414\u0421\u041f-3\u041c", None))
+        self.comboBox_mod.setItemText(1, QCoreApplication.translate("Form", u"\u0420\u0414\u0421\u041f-3\u041c-01", None))
+        self.comboBox_mod.setItemText(2, QCoreApplication.translate("Form", u"\u0420\u0414\u0422-1", None))
 
         self.label_4.setText(QCoreApplication.translate("Form", u"\u041e\u0431\u0445\u0432\u0430\u0442 \u0433\u043e\u043b\u043e\u0432\u044b, \u0441\u043c", None))
         self.label_5.setText(QCoreApplication.translate("Form", u"\u0420\u043e\u0441\u0442, \u0441\u043c", None))
@@ -473,10 +503,15 @@ class Ui_Form(object):
         ___qtablewidgetitem8.setText(QCoreApplication.translate("Form", u"\u041f\u0435\u0440\u0447\u0430\u0442\u043a\u0438 \u0441\u0442\u0430\u0440\u0442\u043e\u0432\u044b\u0435", None))
         ___qtablewidgetitem9 = self.tableResultKit.horizontalHeaderItem(9)
         ___qtablewidgetitem9.setText(QCoreApplication.translate("Form", u"\u041e\u0431\u0443\u0432\u044c \u0441\u0442\u0430\u0440\u0442\u043e\u0432\u0430\u044f", None))
+        self.label_10.setText(QCoreApplication.translate("Form", u"\u041f\u0435\u0440\u0447\u0430\u0442\u043a\u0438 \u043a\u043e\u043b\u044c\u0447\u0443\u0436\u043d\u044b\u0435 \u0445\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0435 - \u0440\u0430\u0437\u043c\u0435\u0440", None))
+        self.comboBox_surgical_chainmail_gloves_size.setItemText(0, QCoreApplication.translate("Form", u"M", None))
+        self.comboBox_surgical_chainmail_gloves_size.setItemText(1, QCoreApplication.translate("Form", u"L", None))
+        self.comboBox_surgical_chainmail_gloves_size.setItemText(2, QCoreApplication.translate("Form", u"S", None))
+
         self.label_9.setText(QCoreApplication.translate("Form", u"\u042d\u043b\u0430\u0441\u0442\u0438\u0447\u043d\u044b\u0435 \u0432\u043f\u0438\u0442\u044b\u0432\u0430\u044e\u0449\u0438\u0435 \u0442\u0440\u0443\u0441\u044b - \u0440\u0430\u0437\u043c\u0435\u0440", None))
-        self.comboBox.setItemText(0, QCoreApplication.translate("Form", u"M", None))
-        self.comboBox.setItemText(1, QCoreApplication.translate("Form", u"L", None))
-        self.comboBox.setItemText(2, QCoreApplication.translate("Form", u"S", None))
+        self.comboBox_trousers_size.setItemText(0, QCoreApplication.translate("Form", u"M", None))
+        self.comboBox_trousers_size.setItemText(1, QCoreApplication.translate("Form", u"L", None))
+        self.comboBox_trousers_size.setItemText(2, QCoreApplication.translate("Form", u"S", None))
 
         self.btnExportSpecCsv.setText(QCoreApplication.translate("Form", u"\u042d\u043a\u0441\u043f\u043e\u0440\u0442 \u0441\u043f\u0435\u0446\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u0438 (CSV)", None))
         self.btnCreateOrder.setText(QCoreApplication.translate("Form", u"\u0421\u0444\u043e\u0440\u043c\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0437\u0430\u043a\u0430\u0437", None))

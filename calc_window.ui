@@ -37,7 +37,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -78,7 +78,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox_2">
+          <widget class="QComboBox" name="comboBox_mod">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -131,7 +131,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_head"/>
            </item>
           </layout>
          </item>
@@ -151,7 +151,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QDoubleSpinBox" name="doubleSpinBox_2"/>
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_height"/>
            </item>
           </layout>
          </item>
@@ -171,7 +171,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QDoubleSpinBox" name="doubleSpinBox_3"/>
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_chest"/>
            </item>
           </layout>
          </item>
@@ -191,7 +191,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QDoubleSpinBox" name="doubleSpinBox_4"/>
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_waist"/>
            </item>
           </layout>
          </item>
@@ -211,7 +211,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QDoubleSpinBox" name="doubleSpinBox_5"/>
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_foot_size"/>
            </item>
           </layout>
          </item>
@@ -228,7 +228,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QDoubleSpinBox" name="doubleSpinBox_6"/>
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_wrist_circ"/>
            </item>
           </layout>
          </item>
@@ -245,7 +245,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QDoubleSpinBox" name="doubleSpinBox_7"/>
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_finger_len"/>
            </item>
           </layout>
          </item>
@@ -262,7 +262,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QDoubleSpinBox" name="doubleSpinBox_8"/>
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_arm_len"/>
            </item>
           </layout>
          </item>
@@ -279,7 +279,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QDoubleSpinBox" name="doubleSpinBox_9"/>
+            <widget class="QDoubleSpinBox" name="doubleSpinBox_leg_len"/>
            </item>
           </layout>
          </item>
@@ -554,7 +554,7 @@ text-align: center;
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox_3">
+          <widget class="QComboBox" name="comboBox_surgical_chainmail_gloves_size">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
              <horstretch>20</horstretch>
@@ -602,7 +602,7 @@ text-align: center;
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox">
+          <widget class="QComboBox" name="comboBox_trousers_size">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
              <horstretch>20</horstretch>
@@ -743,12 +743,12 @@ text-align: center;
  </widget>
  <tabstops>
   <tabstop>tabWidget</tabstop>
-  <tabstop>comboBox_2</tabstop>
-  <tabstop>doubleSpinBox</tabstop>
-  <tabstop>doubleSpinBox_2</tabstop>
-  <tabstop>doubleSpinBox_3</tabstop>
-  <tabstop>doubleSpinBox_4</tabstop>
-  <tabstop>doubleSpinBox_5</tabstop>
+  <tabstop>comboBox_mod</tabstop>
+  <tabstop>doubleSpinBox_head</tabstop>
+  <tabstop>doubleSpinBox_height</tabstop>
+  <tabstop>doubleSpinBox_chest</tabstop>
+  <tabstop>doubleSpinBox_waist</tabstop>
+  <tabstop>doubleSpinBox_foot_size</tabstop>
   <tabstop>btnExportAnthroCsv</tabstop>
   <tabstop>tableResultKit</tabstop>
   <tabstop>btnSaveAllToDb</tabstop>

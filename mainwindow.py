@@ -1,3 +1,4 @@
+# mainwindow.py
 import sys
 import os
 import csv
@@ -19,8 +20,10 @@ class MainApp(QMainWindow):
         self.btnDeleteAstronaut.clicked.connect(self.delete_selected_astronaut)
         self.btnOpenOrdersLog.clicked.connect(self.export_to_csv)
         self.btnAddAstronaut.clicked.connect(self.open_add_dialog)
-
         self.btnOpenCard.clicked.connect(self.open_card)
+
+        # Двойной клик по ячейке также может вызывать карточку расчетов
+        self.tableAstronauts.cellDoubleClicked.connect(self.open_card)
 
         self.load_data()
 
@@ -55,11 +58,10 @@ class MainApp(QMainWindow):
         fio = self.tableAstronauts.item(current_row, 1).text()
         gender = self.tableAstronauts.item(current_row, 0).data(100)
 
-        # Пункт 4: Скрываем главное окно и открываем карточку расчетов
+        # Скрываем главное окно и открываем карточку расчетов
         self.hide()
         self.card_window = CardDialog(ast_id, fio, gender, self.db, parent=self)
         self.card_window.show()
-
 
     def delete_selected_astronaut(self):
         current_row = self.tableAstronauts.currentRow()
@@ -90,7 +92,6 @@ class MainApp(QMainWindow):
         current_dir = os.path.dirname(os.path.abspath(__file__))
         default_path = os.path.join(current_dir, "реестр_экипажа.csv")
 
-        # Передаем default_path вместо простого имени файла
         path, _ = QFileDialog.getSaveFileName(self, "Сохранить отчет", default_path, "CSV Files (*.csv)")
         if not path:
             return
