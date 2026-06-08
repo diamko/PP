@@ -68,6 +68,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.btnAddAstronaut)
 
+        self.btnEditAstronaut = QPushButton(self.centralwidget)
+        self.btnEditAstronaut.setObjectName(u"btnEditAstronaut")
+
+        self.horizontalLayout.addWidget(self.btnEditAstronaut)
+
         self.btnOpenCard = QPushButton(self.centralwidget)
         self.btnOpenCard.setObjectName(u"btnOpenCard")
 
@@ -88,7 +93,7 @@ class Ui_MainWindow(object):
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.btnOpenOrdersLog.sizePolicy().hasHeightForWidth())
         self.btnOpenOrdersLog.setSizePolicy(sizePolicy1)
-        self.btnOpenOrdersLog.setLayoutDirection(Qt.LeftToRight)
+        self.btnOpenOrdersLog.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
 
         self.verticalLayout_2.addWidget(self.btnOpenOrdersLog)
 
@@ -116,7 +121,8 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"ID", None))
         ___qtablewidgetitem1 = self.tableAstronauts.horizontalHeaderItem(1)
         ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"\u0424\u0418\u041e", None))
-        self.btnAddAstronaut.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u043d\u043e\u0432\u043e\u0433\u043e \u043a\u043e\u0441\u043c\u043e\u043d\u0430\u0432\u0442\u0430", None))
+        self.btnAddAstronaut.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u043d\u043e\u0432\u043e\u0433\u043e \u043e\u043f\u0435\u0440\u0430\u0442\u043e\u0440\u0430", None))
+        self.btnEditAstronaut.setText(QCoreApplication.translate("MainWindow", u"\u0420\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u043e\u043f\u0435\u0440\u0430\u0442\u043e\u0440\u0430", None))
         self.btnOpenCard.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0442\u043a\u0440\u044b\u0442\u044c \u043a\u0430\u0440\u0442\u0443 \u043f\u043e\u0434\u0431\u043e\u0440\u0430", None))
         self.btnDeleteAstronaut.setText(QCoreApplication.translate("MainWindow", u"\u0423\u0434\u0430\u043b\u0438\u0442\u044c \u0438\u0437 \u0440\u0435\u0435\u0441\u0442\u0440\u0430", None))
         self.btnOpenOrdersLog.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0442\u043a\u0440\u044b\u0442\u044c \u0436\u0443\u0440\u043d\u0430\u043b \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0445 \u0437\u0430\u044f\u0432\u043e\u043a", None))

@@ -41,6 +41,22 @@ class DatabaseManager:
             print(f"Ошибка при удалении космонавта: {e}")
             return False
 
+    def update_astronaut(self, astronaut_id, last_name, first_name, patronymic, gender):
+        query = """
+            UPDATE astronauts
+            SET last_name = %s, first_name = %s, patronymic = %s, gender = %s
+            WHERE id = %s
+        """
+        try:
+            with self._get_connection() as conn:
+                with conn.cursor() as cursor:
+                    cursor.execute(query, (last_name, first_name, patronymic, gender, astronaut_id))
+                conn.commit()
+                return True
+        except Exception as e:
+            print(f"Ошибка обновления: {e}")
+            return False
+
     def get_astronauts(self, search_text=""):
         query = """
             SELECT id, CONCAT_WS(' ', last_name, first_name, patronymic) AS fio, gender

@@ -7,6 +7,7 @@ from PyQt6 import uic
 from database import DatabaseManager
 from add_astronaut_dialog import AddAstronautDialog
 from calcwindow import CardDialog
+from utils import center_window
 
 class MainApp(QMainWindow):
     def __init__(self):
@@ -21,11 +22,16 @@ class MainApp(QMainWindow):
         self.btnOpenOrdersLog.clicked.connect(self.export_to_csv)
         self.btnAddAstronaut.clicked.connect(self.open_add_dialog)
         self.btnOpenCard.clicked.connect(self.open_card)
+        self.btnEditAstronaut.clicked.connect(self.edit_selected_astronaut)
 
         # Двойной клик по ячейке также может вызывать карточку расчетов
         self.tableAstronauts.cellDoubleClicked.connect(self.open_card)
 
         self.load_data()
+
+    def showEvent(self, event):
+      center_window(self)
+      super().showEvent(event)
 
     def open_add_dialog(self):
         dialog = AddAstronautDialog(self.db, self)
@@ -83,6 +89,28 @@ class MainApp(QMainWindow):
                 self.load_data()
             else:
                 QMessageBox.critical(self, "Ошибка", "Не удалось удалить запись из СУБД.")
+
+    def edit_selected_astronaut(self):
+        current_row = self.tableAstronauts.currentRow()
+        if current_row < 0:
+            QMessageBox.warning(self, "Внимание", "Выберите космонавта для редактирования!")
+            return
+
+        ast_id = int(self.tableAstronauts.item(current_row, 0).text())
+        fio = self.tableAstronauts.item(current_row, 1).text()
+        # Получить пол (хранится в data(100))
+        gender = self.tableAstronauts.item(current_row, 0).data(100)
+
+        # Разобрать ФИО на части (допустим, в таблице хранится "Иванов Иван Иванович")
+        parts = fio.split()
+        last_name = parts[0] if len(parts) > 0 else ""
+        first_name = parts[1] if len(parts) > 1 else ""
+        patronymic = parts[2] if len(parts) > 2 else ""
+
+        from edit_astronaut_dialog import EditAstronautDialog
+        dialog = EditAstronautDialog(ast_id, last_name, first_name, patronymic, gender, self.db, self)
+        if dialog.exec():
+            self.load_data()  # обновить таблицу
 
     def export_to_csv(self):
         if self.tableAstronauts.rowCount() == 0:

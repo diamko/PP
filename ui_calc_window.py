@@ -24,7 +24,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(1223, 348)
+        Form.resize(1223, 380)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -48,8 +48,8 @@ class Ui_Form(object):
         self.tabWidget.setObjectName(u"tabWidget")
         self.tab = QWidget()
         self.tab.setObjectName(u"tab")
-        self.verticalLayout_14 = QVBoxLayout(self.tab)
-        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
+        self.verticalLayout_9 = QVBoxLayout(self.tab)
+        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
         self.horizontalLayout_4 = QHBoxLayout()
         self.horizontalLayout_4.setSpacing(10)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
@@ -79,7 +79,7 @@ class Ui_Form(object):
         self.horizontalLayout_4.addWidget(self.comboBox_mod)
 
 
-        self.verticalLayout_14.addLayout(self.horizontalLayout_4)
+        self.verticalLayout_9.addLayout(self.horizontalLayout_4)
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setSpacing(10)
@@ -235,7 +235,63 @@ class Ui_Form(object):
         self.horizontalLayout_2.addLayout(self.verticalLayout_13)
 
 
-        self.verticalLayout_14.addLayout(self.horizontalLayout_2)
+        self.verticalLayout_9.addLayout(self.horizontalLayout_2)
+
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setSpacing(6)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setContentsMargins(0, -1, -1, -1)
+        self.horizontalSpacer_5 = QSpacerItem(130, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer_5)
+
+        self.label_10 = QLabel(self.tab)
+        self.label_10.setObjectName(u"label_10")
+        sizePolicy.setHeightForWidth(self.label_10.sizePolicy().hasHeightForWidth())
+        self.label_10.setSizePolicy(sizePolicy)
+        self.label_10.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
+        self.label_10.setMargin(0)
+
+        self.horizontalLayout.addWidget(self.label_10)
+
+        self.comboBox_surgical_chainmail_gloves_size = QComboBox(self.tab)
+        self.comboBox_surgical_chainmail_gloves_size.addItem("")
+        self.comboBox_surgical_chainmail_gloves_size.addItem("")
+        self.comboBox_surgical_chainmail_gloves_size.addItem("")
+        self.comboBox_surgical_chainmail_gloves_size.setObjectName(u"comboBox_surgical_chainmail_gloves_size")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        sizePolicy3.setHorizontalStretch(20)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.comboBox_surgical_chainmail_gloves_size.sizePolicy().hasHeightForWidth())
+        self.comboBox_surgical_chainmail_gloves_size.setSizePolicy(sizePolicy3)
+
+        self.horizontalLayout.addWidget(self.comboBox_surgical_chainmail_gloves_size)
+
+        self.horizontalSpacer = QSpacerItem(60, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer)
+
+        self.label_9 = QLabel(self.tab)
+        self.label_9.setObjectName(u"label_9")
+
+        self.horizontalLayout.addWidget(self.label_9)
+
+        self.comboBox_trousers_size = QComboBox(self.tab)
+        self.comboBox_trousers_size.addItem("")
+        self.comboBox_trousers_size.addItem("")
+        self.comboBox_trousers_size.addItem("")
+        self.comboBox_trousers_size.setObjectName(u"comboBox_trousers_size")
+        sizePolicy3.setHeightForWidth(self.comboBox_trousers_size.sizePolicy().hasHeightForWidth())
+        self.comboBox_trousers_size.setSizePolicy(sizePolicy3)
+
+        self.horizontalLayout.addWidget(self.comboBox_trousers_size)
+
+        self.horizontalSpacer_6 = QSpacerItem(160, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer_6)
+
+
+        self.verticalLayout_9.addLayout(self.horizontalLayout)
 
         self.horizontalLayout_15 = QHBoxLayout()
         self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
@@ -258,14 +314,14 @@ class Ui_Form(object):
         self.horizontalLayout_15.addWidget(self.btnExportAnthroCsv)
 
 
-        self.verticalLayout_14.addLayout(self.horizontalLayout_15)
+        self.verticalLayout_9.addLayout(self.horizontalLayout_15)
 
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QWidget()
         self.tab_2.setObjectName(u"tab_2")
         self.verticalLayout_2 = QVBoxLayout(self.tab_2)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.verticalSpacer_2 = QSpacerItem(20, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer_2 = QSpacerItem(40, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.verticalLayout_2.addItem(self.verticalSpacer_2)
 
@@ -307,11 +363,11 @@ class Ui_Form(object):
         if (self.tableResultKit.rowCount() < 1):
             self.tableResultKit.setRowCount(1)
         self.tableResultKit.setObjectName(u"tableResultKit")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(10)
-        sizePolicy3.setHeightForWidth(self.tableResultKit.sizePolicy().hasHeightForWidth())
-        self.tableResultKit.setSizePolicy(sizePolicy3)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(10)
+        sizePolicy4.setHeightForWidth(self.tableResultKit.sizePolicy().hasHeightForWidth())
+        self.tableResultKit.setSizePolicy(sizePolicy4)
         self.tableResultKit.setMinimumSize(QSize(0, 40))
         self.tableResultKit.setStyleSheet(u"QHeaderView::section {\n"
 "white-space: normal;\n"
@@ -331,63 +387,7 @@ class Ui_Form(object):
 
         self.verticalLayout_2.addWidget(self.tableResultKit)
 
-        self.horizontalLayout = QHBoxLayout()
-        self.horizontalLayout.setSpacing(6)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(0, -1, -1, -1)
-        self.horizontalSpacer_5 = QSpacerItem(130, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout.addItem(self.horizontalSpacer_5)
-
-        self.label_10 = QLabel(self.tab_2)
-        self.label_10.setObjectName(u"label_10")
-        sizePolicy.setHeightForWidth(self.label_10.sizePolicy().hasHeightForWidth())
-        self.label_10.setSizePolicy(sizePolicy)
-        self.label_10.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
-        self.label_10.setMargin(0)
-
-        self.horizontalLayout.addWidget(self.label_10)
-
-        self.comboBox_surgical_chainmail_gloves_size = QComboBox(self.tab_2)
-        self.comboBox_surgical_chainmail_gloves_size.addItem("")
-        self.comboBox_surgical_chainmail_gloves_size.addItem("")
-        self.comboBox_surgical_chainmail_gloves_size.addItem("")
-        self.comboBox_surgical_chainmail_gloves_size.setObjectName(u"comboBox_surgical_chainmail_gloves_size")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
-        sizePolicy4.setHorizontalStretch(20)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.comboBox_surgical_chainmail_gloves_size.sizePolicy().hasHeightForWidth())
-        self.comboBox_surgical_chainmail_gloves_size.setSizePolicy(sizePolicy4)
-
-        self.horizontalLayout.addWidget(self.comboBox_surgical_chainmail_gloves_size)
-
-        self.horizontalSpacer = QSpacerItem(60, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout.addItem(self.horizontalSpacer)
-
-        self.label_9 = QLabel(self.tab_2)
-        self.label_9.setObjectName(u"label_9")
-
-        self.horizontalLayout.addWidget(self.label_9)
-
-        self.comboBox_trousers_size = QComboBox(self.tab_2)
-        self.comboBox_trousers_size.addItem("")
-        self.comboBox_trousers_size.addItem("")
-        self.comboBox_trousers_size.addItem("")
-        self.comboBox_trousers_size.setObjectName(u"comboBox_trousers_size")
-        sizePolicy4.setHeightForWidth(self.comboBox_trousers_size.sizePolicy().hasHeightForWidth())
-        self.comboBox_trousers_size.setSizePolicy(sizePolicy4)
-
-        self.horizontalLayout.addWidget(self.comboBox_trousers_size)
-
-        self.horizontalSpacer_6 = QSpacerItem(160, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout.addItem(self.horizontalSpacer_6)
-
-
-        self.verticalLayout_2.addLayout(self.horizontalLayout)
-
-        self.verticalSpacer = QSpacerItem(20, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.verticalLayout_2.addItem(self.verticalSpacer)
 
@@ -457,7 +457,7 @@ class Ui_Form(object):
         self.retranslateUi(Form)
         self.btnCancelAndBack.clicked.connect(Form.close)
 
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(Form)
@@ -480,6 +480,16 @@ class Ui_Form(object):
         self.label_2.setText(QCoreApplication.translate("Form", u"\u0414\u043b\u0438\u043d\u0430 3-\u0433\u043e \u043f\u0430\u043b\u044c\u0446\u0430, \u0441\u043c", None))
         self.label_11.setText(QCoreApplication.translate("Form", u"\u0414\u043b\u0438\u043d\u0430 \u0440\u0443\u043a\u0438 (\u0440\u0443\u043a\u0430\u0432\u0430),\u0441\u043c", None))
         self.label_12.setText(QCoreApplication.translate("Form", u"\u0414\u043b\u0438\u043d\u0430 \u043d\u043e\u0433\u0438 \u043f\u043e \u0431\u043e\u043a\u0443, \u0441\u043c", None))
+        self.label_10.setText(QCoreApplication.translate("Form", u"\u041f\u0435\u0440\u0447\u0430\u0442\u043a\u0438 \u043a\u043e\u043b\u044c\u0447\u0443\u0436\u043d\u044b\u0435 \u0445\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0435 - \u0440\u0430\u0437\u043c\u0435\u0440", None))
+        self.comboBox_surgical_chainmail_gloves_size.setItemText(0, QCoreApplication.translate("Form", u"M", None))
+        self.comboBox_surgical_chainmail_gloves_size.setItemText(1, QCoreApplication.translate("Form", u"L", None))
+        self.comboBox_surgical_chainmail_gloves_size.setItemText(2, QCoreApplication.translate("Form", u"S", None))
+
+        self.label_9.setText(QCoreApplication.translate("Form", u"\u042d\u043b\u0430\u0441\u0442\u0438\u0447\u043d\u044b\u0435 \u0432\u043f\u0438\u0442\u044b\u0432\u0430\u044e\u0449\u0438\u0435 \u0442\u0440\u0443\u0441\u044b - \u0440\u0430\u0437\u043c\u0435\u0440", None))
+        self.comboBox_trousers_size.setItemText(0, QCoreApplication.translate("Form", u"M", None))
+        self.comboBox_trousers_size.setItemText(1, QCoreApplication.translate("Form", u"L", None))
+        self.comboBox_trousers_size.setItemText(2, QCoreApplication.translate("Form", u"S", None))
+
         self.btnResetInputs.setText(QCoreApplication.translate("Form", u"\u0421\u0431\u0440\u043e\u0441\u0438\u0442\u044c \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u044b", None))
         self.btnExportAnthroCsv.setText(QCoreApplication.translate("Form", u"\u042d\u043a\u0441\u043f\u043e\u0440\u0442 \u0430\u043d\u0442\u0440\u043e\u043f\u043e\u043c\u0435\u0442\u0440\u0438\u0438 (CSV)", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("Form", u"\u0412\u0445\u043e\u0434\u043d\u044b\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u044b \u0438 \u0420\u0430\u0441\u0447\u0435\u0442", None))
@@ -503,16 +513,6 @@ class Ui_Form(object):
         ___qtablewidgetitem8.setText(QCoreApplication.translate("Form", u"\u041f\u0435\u0440\u0447\u0430\u0442\u043a\u0438 \u0441\u0442\u0430\u0440\u0442\u043e\u0432\u044b\u0435", None))
         ___qtablewidgetitem9 = self.tableResultKit.horizontalHeaderItem(9)
         ___qtablewidgetitem9.setText(QCoreApplication.translate("Form", u"\u041e\u0431\u0443\u0432\u044c \u0441\u0442\u0430\u0440\u0442\u043e\u0432\u0430\u044f", None))
-        self.label_10.setText(QCoreApplication.translate("Form", u"\u041f\u0435\u0440\u0447\u0430\u0442\u043a\u0438 \u043a\u043e\u043b\u044c\u0447\u0443\u0436\u043d\u044b\u0435 \u0445\u0438\u0440\u0443\u0440\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0435 - \u0440\u0430\u0437\u043c\u0435\u0440", None))
-        self.comboBox_surgical_chainmail_gloves_size.setItemText(0, QCoreApplication.translate("Form", u"M", None))
-        self.comboBox_surgical_chainmail_gloves_size.setItemText(1, QCoreApplication.translate("Form", u"L", None))
-        self.comboBox_surgical_chainmail_gloves_size.setItemText(2, QCoreApplication.translate("Form", u"S", None))
-
-        self.label_9.setText(QCoreApplication.translate("Form", u"\u042d\u043b\u0430\u0441\u0442\u0438\u0447\u043d\u044b\u0435 \u0432\u043f\u0438\u0442\u044b\u0432\u0430\u044e\u0449\u0438\u0435 \u0442\u0440\u0443\u0441\u044b - \u0440\u0430\u0437\u043c\u0435\u0440", None))
-        self.comboBox_trousers_size.setItemText(0, QCoreApplication.translate("Form", u"M", None))
-        self.comboBox_trousers_size.setItemText(1, QCoreApplication.translate("Form", u"L", None))
-        self.comboBox_trousers_size.setItemText(2, QCoreApplication.translate("Form", u"S", None))
-
         self.btnExportSpecCsv.setText(QCoreApplication.translate("Form", u"\u042d\u043a\u0441\u043f\u043e\u0440\u0442 \u0441\u043f\u0435\u0446\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u0438 (CSV)", None))
         self.btnCreateOrder.setText(QCoreApplication.translate("Form", u"\u0421\u0444\u043e\u0440\u043c\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0437\u0430\u043a\u0430\u0437", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("Form", u"\u0420\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442\u044b \u0430\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0433\u043e \u043f\u043e\u0434\u0431\u043e\u0440\u0430", None))
