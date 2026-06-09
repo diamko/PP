@@ -1,6 +1,6 @@
 from PyQt6.QtWidgets import QDialog, QMessageBox
 from PyQt6 import uic
-from utils import center_window
+
 
 class EditAstronautDialog(QDialog):
     def __init__(self, astronaut_id, last_name, first_name, patronymic, gender, db_manager, parent=None):
@@ -16,10 +16,6 @@ class EditAstronautDialog(QDialog):
         index = self.comboBoxGender.findText(gender)
         if index >= 0:
             self.comboBoxGender.setCurrentIndex(index)
-
-    def showEvent(self, event):
-        center_window(self)
-        super().showEvent(event)
 
     def accept(self):
         last_name = self.lineEditLastName.text().strip()

@@ -464,7 +464,7 @@ class Ui_Form(object):
     # setupUi
 
     def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
+        Form.setWindowTitle(QCoreApplication.translate("Form", u"\u041a\u0430\u0440\u0442\u0430 \u043f\u043e\u0434\u0431\u043e\u0440\u0430 \u0441\u043d\u0430\u0440\u044f\u0436\u0435\u043d\u0438\u044f", None))
         self.labelAstranautName.setText(QCoreApplication.translate("Form", u"\u041a\u043e\u0441\u043c\u043e\u043d\u0430\u0432\u0442:", None))
         self.label_3.setText(QCoreApplication.translate("Form", u"\u041c\u043e\u0434\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u044f \u0441\u043a\u0430\u0444\u0430\u043d\u0434\u0440\u0430:", None))
         self.comboBox_mod.setItemText(0, QCoreApplication.translate("Form", u"\u0420\u0414\u0421\u041f-3\u041c", None))

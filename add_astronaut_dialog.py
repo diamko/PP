@@ -1,6 +1,5 @@
 from PyQt6.QtWidgets import QDialog, QMessageBox
 from PyQt6 import uic
-from utils import center_window
 
 class AddAstronautDialog(QDialog):
     def __init__(self, db_manager, parent=None):
@@ -9,7 +8,6 @@ class AddAstronautDialog(QDialog):
         self.db = db_manager
 
     def showEvent(self, event):
-        center_window(self)
         super().showEvent(event)
 
     def accept(self):

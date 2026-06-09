@@ -3,7 +3,6 @@ import csv
 import os
 from PyQt6.QtWidgets import QWidget, QMessageBox, QTableWidgetItem, QFileDialog, QHeaderView
 from PyQt6 import uic
-from utils import center_window
 
 from report_generator import generate_order_document
 
@@ -128,9 +127,6 @@ class CardDialog(QWidget):
 
         self.load_or_reset_data()
 
-    def showEvent(self, event):
-      center_window(self)
-      super().showEvent(event)
 
     def load_or_reset_data(self):
         """Загружает данные из БД с учетом новой структуры."""

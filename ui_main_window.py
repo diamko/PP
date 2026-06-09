@@ -115,7 +115,7 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"\u0420\u0435\u0435\u0441\u0442\u0440 \u043e\u043f\u0435\u0440\u0430\u0442\u043e\u0440\u043e\u0432", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"\u041f\u041e\u0418\u0421\u041a", None))
         ___qtablewidgetitem = self.tableAstronauts.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"ID", None))

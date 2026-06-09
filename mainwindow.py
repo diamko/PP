@@ -7,7 +7,6 @@ from PyQt6 import uic
 from database import DatabaseManager
 from add_astronaut_dialog import AddAstronautDialog
 from calcwindow import CardDialog
-from utils import center_window
 
 class MainApp(QMainWindow):
     def __init__(self):
@@ -28,10 +27,6 @@ class MainApp(QMainWindow):
         self.tableAstronauts.cellDoubleClicked.connect(self.open_card)
 
         self.load_data()
-
-    def showEvent(self, event):
-      center_window(self)
-      super().showEvent(event)
 
     def open_add_dialog(self):
         dialog = AddAstronautDialog(self.db, self)
